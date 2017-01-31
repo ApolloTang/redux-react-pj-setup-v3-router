@@ -7,7 +7,7 @@ import { Router, Route, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux';
 
-import App from 'app';
+import Todos from 'modules/todos';
 import store from './store';
 
 import style from './style';
@@ -20,7 +20,7 @@ class Root extends Component {
             <div className={`root ${style['module-style']}`}>
                 <Provider store={store}>
                     <Router history={syncHistoryWithStore(browserHistory, store)}>
-                      <Route path="/(:filterType)" component={App} />
+                      <Route path="/(:filterType)" component={Todos} />
                     </Router>
                 </Provider>
             </div>

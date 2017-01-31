@@ -5,9 +5,9 @@ if (process && process.env && process.env.CONSOLE_LOG) {
 import React from 'react'
 import { render } from 'react-dom'
 
-import FilteredTodos from 'app/containers/filtered-todos';
-import AddTodo from 'app/containers/add-todo';
-import Control from 'app/components/control-section';
+import FilteredTodos from './containers/filtered-todos';
+import AddTodo from './containers/add-todo';
+import Control from './components/control-section';
 
 import style from './style';
 const App = ({ params }) => {

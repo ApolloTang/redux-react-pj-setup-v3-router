@@ -1,17 +1,17 @@
 import {combineReducers} from 'redux';
 
-import todos from  './todos';
+import todos from  'modules/todos/reducers';
 
-const AppReducer = combineReducers({
+const modules = combineReducers({
     todos
 });
 
-
 import { routerReducer } from 'react-router-redux';
 const rootReducer = combineReducers({
-  resources: AppReducer,
-  sessions: {},
-  routing: routerReducer
+    modules,
+    // resources: AppReducer,
+    // sessions: {},
+    routing: routerReducer
 })
 
 export default rootReducer;

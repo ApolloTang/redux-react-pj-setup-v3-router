@@ -1,5 +1,5 @@
 import React from 'react'
-import TodoListFilterSettingCtrl from 'app/containers/todo-list-filter-setting-ctrl'
+import TodoListFilterSettingCtrl from '../../containers/todo-list-filter-setting-ctrl'
 
 const ControlSection = () => (
   <p>

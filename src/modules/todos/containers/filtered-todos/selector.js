@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import  * as Action from 'app/actions/todos';
+import  * as Action from 'modules/todos/actions/todos';
 
 
 function getFilteredTodos(todos, filterType) {
@@ -22,7 +22,7 @@ function getFilteredTodos(todos, filterType) {
 }
 
 const mapStoreToProps = (store, ownProps) => {
-    const unFilteredTodos =  _.get(store, `resources.todos`, {});
+    const unFilteredTodos =  _.get(store, `modules.todos`, {});
     const filteredTodos = getFilteredTodos(unFilteredTodos, ownProps.filterType);
     return {
         todos: filteredTodos
