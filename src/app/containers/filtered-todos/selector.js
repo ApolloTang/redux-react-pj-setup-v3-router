@@ -22,7 +22,8 @@ function getFilteredTodos(todos, filterType) {
 }
 
 const mapStoreToProps = (store, ownProps) => {
-    const filteredTodos = getFilteredTodos(store.todos, ownProps.filterType);
+    const unFilteredTodos =  _.get(store, `resources.todos`, {});
+    const filteredTodos = getFilteredTodos(unFilteredTodos, ownProps.filterType);
     return {
         todos: filteredTodos
     }

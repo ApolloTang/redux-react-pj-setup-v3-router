@@ -4,19 +4,11 @@ if (process && process.env && process.env.CONSOLE_LOG) {
 
 import React, {Component} from 'react';
 import { Router, Route, browserHistory } from 'react-router';
-
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { syncHistoryWithStore } from 'react-router-redux';
 
 import App from 'app';
-import rootReducer from 'app/reducers';
-
-const store = createStore(rootReducer);
-store.subscribe(()=>{
-    console.log('store change', store.getState())
-})
-
-
+import store from './store';
 
 import style from './style';
 class Root extends Component {
@@ -27,7 +19,7 @@ class Root extends Component {
         return(
             <div className={`root ${style['module-style']}`}>
                 <Provider store={store}>
-                    <Router history={browserHistory}>
+                    <Router history={syncHistoryWithStore(browserHistory, store)}>
                       <Route path="/(:filterType)" component={App} />
                     </Router>
                 </Provider>
