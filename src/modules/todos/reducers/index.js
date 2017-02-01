@@ -1,7 +1,6 @@
 import _ from 'lodash';
 
 const todos = (state = {}, action) => {
-    console.log('action: ', action);
     switch (action.type) {
         case 'ADD_TODO': {
             return {
