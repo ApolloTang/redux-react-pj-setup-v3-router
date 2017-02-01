@@ -1,7 +1,8 @@
 import _ from 'lodash';
 
 const mapStoreToProps = (store, ownProps) => {
-    return { }
+    const routing = _.get(store, `routing.locationBeforeTransitions`, void 0);
+    return { routing };
 };
 
 export {mapStoreToProps};

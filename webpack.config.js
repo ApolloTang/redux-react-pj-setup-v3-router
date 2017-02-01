@@ -46,6 +46,7 @@ const config_fn = env => {                                                  // [
         },
         output: {
             pathinfo: ifNotProd(),                                          // [35]
+            publicPath: '/',
             path: absolutePath_buildFolder,                                 // [4]
             filename: ifProd(
                 'bundle.[name].[chunkhash].js',                             // [9][22]
