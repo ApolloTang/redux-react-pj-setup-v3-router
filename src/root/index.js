@@ -11,10 +11,16 @@ import store from './store';
 
 import App from 'modules/app';
 import Todos from 'modules/todos';
+import Twitter from 'modules/twitter';
+import FontTest from 'modules/font-test';
 
 import style from './style';
 
-const Home = ()=>(<div>HOME</div>);
+const navigations = [
+    {to:'/todo', displayText:'todo'},
+    {to:'/twitter', displayText:'twitter'},
+    {to:'/font-test', displayText:'font test'},
+]
 
 class Root extends Component {
     constructor(props) {
@@ -27,6 +33,8 @@ class Root extends Component {
                     <Router history={syncHistoryWithStore(browserHistory, store)}>
                         <Route path="/" component={App} >
                             <Route path="/todo(/:filterType)" component={Todos} />
+                            <Route path="/twitter" component={Twitter} />
+                            <Route path="/font-test" component={FontTest} />
                         </Route>
                     </Router>
                 </Provider>
@@ -36,6 +44,5 @@ class Root extends Component {
 }
 
 export default Root;
-
-
+export {navigations};
 

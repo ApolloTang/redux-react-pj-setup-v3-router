@@ -7,10 +7,7 @@ import SimpleNavigation from 'widgets/simple-navigation';
 
 import style from './style';
 
-const navigations = [
-    {to:'todo', displayText:'todo'},
-    {to:'facebook.com', displayText:'facebook'}
-]
+import {navigations} from 'root';
 
 class App extends Component {
     constructor(props) {

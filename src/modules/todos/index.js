@@ -21,7 +21,7 @@ const App = ({ params }) => {
                     <FilteredTodos filterType={params.filterType || 'all'}/>
                 </div>
                 <div className="filter-ctr-container">
-                    <Control />
+                    <Control params={params}/>
                 </div>
             </div>
         </div>
