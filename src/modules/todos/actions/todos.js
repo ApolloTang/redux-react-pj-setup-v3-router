@@ -1,8 +1,10 @@
+import c from '../common/actions-names';
+import {nameSpace} from '../common/config';
 
 let nextTodoId = 0
 export const addTodo = (text) => {
   return {
-    type: 'ADD_TODO',
+    type: `${nameSpace}__add`,
     id: nextTodoId++,
     text
   }
@@ -10,14 +12,14 @@ export const addTodo = (text) => {
 
 export const removeTodo = (id) => {
   return {
-    type: 'REMOVE_TODO',
+    type: `${nameSpace}__remove`,
     id
   }
 }
 
 export const toggleTodo = (id) => {
   return {
-    type: 'TOGGLE_TODO',
+    type: `${nameSpace}__toggle`,
     id
   }
 }

@@ -1,8 +1,11 @@
 import _ from 'lodash';
+import c from '../common/actions-names';
+import {nameSpace} from '../common/config';
+
 
 const todos = (state = {}, action) => {
     switch (action.type) {
-        case 'ADD_TODO': {
+        case `${nameSpace}__add`: {
             return {
                 ...state,
                 [action.id]: {
@@ -13,14 +16,14 @@ const todos = (state = {}, action) => {
             }
 
         }
-        case 'REMOVE_TODO': {
+        case `${nameSpace}__remove`: {
             const nextState = {
                 ...state
             }
             delete nextState[action.id];
             return nextState;
         }
-        case 'TOGGLE_TODO': {
+        case `${nameSpace}__toggle`: {
             const nextState = {
                 ...state
             }
