@@ -13,6 +13,7 @@ const AddTodo = ({dispatch_addTodo}) => {
                 e=>{
                     e.preventDefault();
                     dispatch_addTodo(inputValue);
+                    inputValue = '';
                     inputNode.value = '';
                 }} >
                 <input
