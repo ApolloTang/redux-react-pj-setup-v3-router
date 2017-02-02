@@ -11,15 +11,15 @@ import store from './store';
 
 import App from 'modules/app';
 import Todos from 'modules/todos';
-import Twitter from 'modules/twitter';
 import FontTest from 'modules/font-test';
+import LazyLoad from 'modules/lazy-load';
 
 import style from './style';
 
 const navigations = [
     {to:'/todo', displayText:'todo'},
-    {to:'/twitter', displayText:'twitter'},
     {to:'/font-test', displayText:'font test'},
+    {to:'/lazy-load', displayText:'lazy load'},
 ]
 
 class Root extends Component {
@@ -33,8 +33,8 @@ class Root extends Component {
                     <Router history={syncHistoryWithStore(browserHistory, store)}>
                         <Route path="/" component={App} >
                             <Route path="/todo(/:filterType)" component={Todos} />
-                            <Route path="/twitter" component={Twitter} />
                             <Route path="/font-test" component={FontTest} />
+                            <Route path="/lazy-load" component={LazyLoad} />
                         </Route>
                     </Router>
                 </Provider>
