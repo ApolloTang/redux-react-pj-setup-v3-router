@@ -1,4 +1,4 @@
-const nameSpace = 'todos';
+import {nameSpace} from  '../config';
 
 const symbols = [
     'add',

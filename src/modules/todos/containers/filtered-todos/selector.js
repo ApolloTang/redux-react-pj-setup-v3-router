@@ -1,5 +1,6 @@
 import _ from 'lodash';
-import  * as Action from 'modules/todos/actions/todos';
+import  * as Action from '../../actions/todos';
+import  {nameSpace} from  '../../config';
 
 
 function getFilteredTodos(todos, filterType) {
@@ -22,7 +23,7 @@ function getFilteredTodos(todos, filterType) {
 }
 
 const mapStoreToProps = (store, ownProps) => {
-    const unFilteredTodos =  _.get(store, `modules.todos`, {});
+    const unFilteredTodos =  _.get(store, `modules.${nameSpace}`, {});
     const filteredTodos = getFilteredTodos(unFilteredTodos, ownProps.filterType);
     return {
         todos: filteredTodos

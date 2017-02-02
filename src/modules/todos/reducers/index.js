@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import c from '../common/actions-names';
-import {nameSpace} from '../common/config';
+import {nameSpace} from '../config';
 
 
 const todos = (state = {}, action) => {

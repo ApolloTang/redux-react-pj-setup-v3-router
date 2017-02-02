@@ -17,7 +17,7 @@ import LazyLoad from 'modules/lazy-load';
 import style from './style';
 
 const navigations = [
-    {to:'/todo', displayText:'todo'},
+    {to:'/todos', displayText:'todo'},
     {to:'/font-test', displayText:'font test'},
     {to:'/lazy-load', displayText:'lazy load'},
 ]
@@ -32,7 +32,7 @@ class Root extends Component {
                 <Provider store={store}>
                     <Router history={syncHistoryWithStore(browserHistory, store)}>
                         <Route path="/" component={App} >
-                            <Route path="/todo(/:filterType)" component={Todos} />
+                            <Route path="/todos(/:filterType)" component={Todos} />
                             <Route path="/font-test" component={FontTest} />
                             <Route path="/lazy-load" component={LazyLoad} />
                         </Route>

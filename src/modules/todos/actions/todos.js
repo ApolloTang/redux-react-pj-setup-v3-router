@@ -1,5 +1,5 @@
 import c from '../common/actions-names';
-import {nameSpace} from '../common/config';
+import {nameSpace} from '../config';
 
 let nextTodoId = 0
 export const addTodo = (text) => {

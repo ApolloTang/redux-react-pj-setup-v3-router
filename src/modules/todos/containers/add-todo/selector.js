@@ -1,4 +1,4 @@
-import {addTodo as Action_addTodo } from 'modules/todos/actions/todos';
+import {addTodo as Action_addTodo } from '../../actions/todos';
 
 const mapStoreToProps = store=>({});
 
