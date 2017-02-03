@@ -9,6 +9,7 @@ function getPath(paramsFilterType, routingPathName) {
     // For example:
     //     routingPathName can be: '/aaa/bbb/ccc/:filterType' or '/aaa/bbb/ccc'
     //     this function will always return the path: '/aaa/bbb/ccc'
+    if (routingPathName === void 0) return void 0;
     const pathParts = routingPathName.split('/');
     (paramsFilterType) ? pathParts.pop() : pathParts;
     const path = pathParts.join('/');
@@ -34,7 +35,9 @@ class TodoListFilterSettingCtrl extends Component {
 
     handleNavigate() {
         const path = this.path;
-        browserHistory.push(`${path}/${this.props.filterType}`);
+        if (path) {
+            browserHistory.push(`${path}/${this.props.filterType}`);
+        }
     }
 
     render() {
