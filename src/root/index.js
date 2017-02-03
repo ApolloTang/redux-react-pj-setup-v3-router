@@ -33,7 +33,17 @@ class Root extends Component {
                     <Router history={syncHistoryWithStore(browserHistory, store)}>
                         <Route path="/" component={App} >
                             <IndexRoute component={()=>(<div className="home">Home</div>)} />
-                            <Route path="/todos(/:filterType)" component={Todos} />
+                            {/*
+                                <Route path="/todos(/:filterType)" component={Todos} />
+
+                                The above works, however <Link> will not show active if navigate to
+                                its decendent (:filterType). The solution is at following as
+                                mentioned in:
+                                    https://github.com/ReactTraining/react-router/issues/1684
+                            */}
+                            <Route path="/todos" component={Todos} >
+                                <Route path=":filterType" component={Todos} />
+                            </Route>
                             <Route path="/font-test" component={FontTest} />
                             <Route path="/lazy-load" component={LazyLoad} />
                         </Route>
