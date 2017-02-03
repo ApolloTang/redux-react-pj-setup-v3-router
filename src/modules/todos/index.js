@@ -15,14 +15,14 @@ const ModulesRoot = ({ params }) => {
     return (
         <div className={`${nameSpace} ${style['module-style']}`}>
             <div className="layout">
+                <div className="filter-ctr-container">
+                    <Control params={params}/>
+                </div>
                 <div className="add-todo-container">
                     <AddTodo />
                 </div>
                 <div className="todos-list-container">
                     <FilteredTodos filterType={params.filterType || 'all'}/>
-                </div>
-                <div className="filter-ctr-container">
-                    <Control params={params}/>
                 </div>
             </div>
         </div>

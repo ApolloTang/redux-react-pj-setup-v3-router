@@ -3,7 +3,22 @@
 @import "~common/styles-init/index";
 
 :local(.module-style) {
+
     padding: 10px;
     .oban-clearfix();
+    min-height: 500px;
+    .layout {
+        padding: 5px;
+        width: 100%;
+        > div {
+            width: 100%;
+        }
+        > div + div {
+            margin-top: 10px;
+        }
+        .todos-list-container {
+
+        }
+    }
 }
 /* +++++++++++++++++++++++++++++++++ style-file[end]   app/style.less */
