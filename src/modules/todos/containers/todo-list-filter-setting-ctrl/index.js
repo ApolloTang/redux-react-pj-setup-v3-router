@@ -4,6 +4,7 @@ import { browserHistory } from 'react-router';
 import {connect} from 'react-redux';
 
 import {mapStoreToProps} from './selector';
+import style from './style';
 
 function getPath(paramsFilterType, routingPathName) {
     // For example:
@@ -41,9 +42,20 @@ class TodoListFilterSettingCtrl extends Component {
     }
 
     render() {
+        const paramsFilterType = _.get(this.props, `params.filterType`, void 0);
+        const ownFilterType = this.props.filterType;
+        const isActive =
+            ((ownFilterType === paramsFilterType) ||
+            ((paramsFilterType === void 0) && (ownFilterType === 'all')) )
+            ? true : false;
+
         return (
-            <div onClick={this.handleNavigate.bind(this)}>
-                {this.props.children}
+            <div className={`todo-list-filter-setting-ctrl ${style['module-style']}`} >
+                <div
+                    className={isActive ? 'is-active' : '' }
+                    onClick={this.handleNavigate.bind(this)}>
+                    {this.props.children}
+                </div>
             </div>
         );
     }
