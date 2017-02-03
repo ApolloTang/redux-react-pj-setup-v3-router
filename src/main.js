@@ -17,5 +17,5 @@ import style from 'main.less';
 import fonts from 'common/fonts';
 
 import Root from 'root';
-const appContainer = document.getElementById("root-container");
-render( <Root />, appContainer);
+const rootContainer = document.getElementById("root-container");
+render( <Root />, rootContainer);

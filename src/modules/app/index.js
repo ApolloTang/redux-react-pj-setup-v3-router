@@ -16,8 +16,12 @@ class App extends Component {
     render() {
         return (
             <div className={`app ${style['module-style']}`} >
-                <SimpleNavigation navigations={navigations}/>
-                {this.props.children}
+                <div className="app-navigation-container">
+                    <SimpleNavigation navigations={navigations}/>
+                </div>
+                <div className="app-workspace">
+                    {this.props.children}
+                </div>
             </div>
         );
     }

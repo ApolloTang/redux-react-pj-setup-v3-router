@@ -32,6 +32,7 @@ class Root extends Component {
                 <Provider store={store}>
                     <Router history={syncHistoryWithStore(browserHistory, store)}>
                         <Route path="/" component={App} >
+                            <IndexRoute component={()=>(<div className="home">Home</div>)} />
                             <Route path="/todos(/:filterType)" component={Todos} />
                             <Route path="/font-test" component={FontTest} />
                             <Route path="/lazy-load" component={LazyLoad} />

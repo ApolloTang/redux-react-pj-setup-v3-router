@@ -2,10 +2,14 @@
 
 .module-style(@radius) {
     padding: 10px;
-    border: @blue-color @tiny solid;
     border-radius: @radius;
-    -moz-border-radius: @radius;
-    -webkit-border-radius: @radius;
+}
+
+.mixin-container(@radius) {
+    border-radius: @radius;
+    background: hsl(0, 0%, 90%);
+    border: 1px solid  hsl(0, 0%, 70%);
+    min-height: 100px;
 }
 
 /* +++++++++++++++++++++++++++++++++ file[end]   src/common/styles-init/_mixin.less */
