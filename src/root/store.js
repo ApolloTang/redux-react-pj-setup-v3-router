@@ -11,6 +11,7 @@ if (PROD) {
     store = createStore(
         rootReducer,
         /* preloadedState, */
+        applyMiddleware(...middleware)
     );
 } else {
     store = createStore(

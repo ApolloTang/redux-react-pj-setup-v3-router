@@ -1,13 +1,15 @@
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 
-// const isProduction = (process.env.NODE_ENV !== 'production');
-const isProduction = true;
+const PROD = (process && process.env && process.env.PROD) ? true : false;
 
 const middleware = [ thunk ];
 
-if (isProduction) {
-  middleware.push(createLogger())
+if (PROD) {
+} else {
+    middleware.push(
+        createLogger()
+    )
 }
 
 export default middleware;
