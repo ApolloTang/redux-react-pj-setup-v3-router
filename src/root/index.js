@@ -13,6 +13,7 @@ import App from 'modules/app';
 import Todos from 'modules/todos';
 import FontTest from 'modules/font-test';
 import LazyLoad from 'modules/lazy-load';
+import config from './config';
 
 import style from './style';
 
@@ -20,7 +21,19 @@ const navigations = [
     {to:'/todos', displayText:'todo'},
     {to:'/font-test', displayText:'font test'},
     {to:'/lazy-load', displayText:'lazy load'},
-]
+];
+
+window.addEventListener("beforeunload", function (e) {
+    if (config.persistStoreState) {
+        localStorage.setItem('STORE', JSON.stringify(store.getState()) );
+        return null;
+    }
+
+    (e || window.event).returnValue = null;
+    return null;
+    // http://stackoverflow.com/questions/7255649/window-onbeforeunload-not-working
+});
+
 
 class Root extends Component {
     constructor(props) {
