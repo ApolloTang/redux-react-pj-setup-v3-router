@@ -4,15 +4,16 @@ import rootReducer from './reducers';
 import middleware from  './middleware';
 
 import config from './config';
+import { loadState as loadPersistedState } from './local-storage';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
 const PROD = (process && process.env && process.env.PROD) ? true : false;
-const preloadedState = JSON.parse(localStorage.getItem('STORE'));
+const preloadedState = loadPersistedState();
+
 
 let store;
 if (PROD) {
-    if (config.persistStoreState && preloadedState) {
+    if (config.shouldPersistStoreState && preloadedState) {
         store = createStore(
             rootReducer,
             preloadedState,
@@ -25,7 +26,7 @@ if (PROD) {
         );
     }
 } else {
-    if (config.persistStoreState && preloadedState) {
+    if (config.shouldPersistStoreState && preloadedState) {
         store = createStore(
             rootReducer,
             preloadedState,
@@ -42,6 +43,7 @@ if (PROD) {
         );
     }
 }
+
 
 export default store;
 

@@ -15,6 +15,8 @@ import FontTest from 'modules/font-test';
 import LazyLoad from 'modules/lazy-load';
 import config from './config';
 
+import { saveState as saveStateToLocalStorage } from './local-storage';
+
 import style from './style';
 
 const navigations = [
@@ -24,8 +26,8 @@ const navigations = [
 ];
 
 window.addEventListener("beforeunload", function (e) {
-    if (config.persistStoreState) {
-        localStorage.setItem('STORE', JSON.stringify(store.getState()) );
+    if (config.shouldPersistStoreState) {
+        saveStateToLocalStorage( store.getState() );
         return null;
     }
 
